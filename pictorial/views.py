@@ -2,5 +2,5 @@ from django.shortcuts import render
 
 
 # Create your views here.
-def welcome(request):
+def pictorial(request):
     return render(request, 'pictorial.html')

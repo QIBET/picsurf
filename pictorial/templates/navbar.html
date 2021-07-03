@@ -9,16 +9,16 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'welcome' %}">Pic~Surf</a>
+      <a class="navbar-brand" href="{% url 'pictorial' %}">Pic~Surf</a>
     </div>
     <div class="menu">
         <ul class='hidden'>
             <li class="home">
-                <a href="{% url '/' %}">Home</a>
+                <a href="{% url 'pictorial' %}">Home</a>
             </li>
                       
         </ul>
-        <form class="form-inline search" role="search" action="{% url 'search_results' %}">
+        <form class="form-inline search" role="search" action="{% url 'welcome' %}">
                 <input class="form-control" type="search" placeholder="Search" aria-label="Search" name='image'>
                 <button class="btn" type="submit">
                     <i class="fas fa-search"></i>
