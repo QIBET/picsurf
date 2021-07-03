@@ -1,7 +1,32 @@
-{% extends 'pics/base.html' %}
+{%extends 'all_pics/base.html'%}
+{% block content %} 
+{{ block.super}}
 
-{%block content%}
-    {{ block.super}}
- <div class="text-center text-primary salute"><h2>Welcome to Gallery</h2> </div>
+<div class="container">
 
-{%endblock%}
+  <!-- Looping through news   -->
+  {% for pic in pics %}
+
+  <div class="row">
+    <!-- displaying News articles -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <h2 class="text-center"> {{ pic.image_name }} </h2>
+      <p><em>{{pic.description}}</em></p>
+    </div>
+    <!--Display news Article images  -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <img src="{{pic.image.url}}" class="img-responsive" alt="Image">
+    </div>
+
+
+  </div>
+
+  {% empty %}
+  <div class="row">
+    <h2 class="text-center">There are no images</h2>
+  </div>
+  {% endfor %}
+
+</div>
+
+{% endblock %}
