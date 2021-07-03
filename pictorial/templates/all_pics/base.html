@@ -4,7 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8" initial-scale="1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   {% if title %}
   <title>Picsurf - {{title}}</title>
@@ -13,7 +15,7 @@
   {% endif %}
 
   {% block styles %}
-    {% bootstrap_css %}
+  {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/picsurf.css' %}">
 
   {% endblock %}
@@ -21,6 +23,8 @@
 </head>
   <body>
       {% include "navbar.html" %}
+      {% block content %} {% endblock %}
+
 
       {% block scripts %}
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
