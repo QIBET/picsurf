@@ -14,14 +14,9 @@
     <div class="menu">
         <ul class='hidden'>
             <li class="home">
-                <a href="{% url 'gallery' %}">Home</a>
+                <a href="{% url '/' %}">Home</a>
             </li>
-            <li class="category">
-                <a href="{% url 'categories' %}">Category</a>
-            </li>
-            <li class="location">
-                <a href="{% url 'locations' %}">Location</a>
-            </li>                
+                      
         </ul>
         <form class="form-inline search" role="search" action="{% url 'search_results' %}">
                 <input class="form-control" type="search" placeholder="Search" aria-label="Search" name='image'>
