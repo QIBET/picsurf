@@ -3,7 +3,7 @@ from django.db import models
 class Image(models.Model):
     image_name =models.CharField(max_length =30)
     description =models.CharField(max_length =50)
-    image = models.ImageField(upload_to = 'pictures/', default='image',null = True)
+    image = models.ImageField(upload_to = 'pictures/', default='image',blank = True)
     location = models.ForeignKey('Location', on_delete = models.CASCADE,null='True', blank=True)
     category = models.ForeignKey('Category', on_delete = models.CASCADE,null='True', blank=True)
 
@@ -14,6 +14,10 @@ class Image(models.Model):
 
     def save_image(self):
         self.save() 
+    @classmethod
+    def all_photos(cls):
+        pics = cls.objects.all()
+        return pics 
 
 class Location(models.Model):
     name = models.CharField(max_length =30)
