@@ -1,32 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="{% url 'pictorial' %}">Pic~Surf</a>
-    </div>
-    <div class="menu">
-        <ul class='hidden'>
-            <li class="home">
-                <a href="{% url 'pictorial' %}">Home</a>
-            </li>
-                      
-        </ul>
-        <form class="form-inline search" role="search" action="{% url 'pictorial' %}">
-                <input class="form-control" type="search" placeholder="Search" aria-label="Search" name='image'>
-                <button class="btn" type="submit">
-                    <i class="fas fa-search"></i>
-                </button>
-            </form>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'pictorial' %}">Pic~Surf</a>
+           
+          </div>
+            <form class="navbar-form navbar-right" role="search" action="">
 
-    </div>
-  </div>
-</nav>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search Pics" name="article">
+                <div class="input-group-btn">
+                  <button class="btn btn-info" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+              </div>
+
+            </form>     
+    </nav>
 </body>
 </html>
