@@ -9,16 +9,20 @@ class Image(models.Model):
 
     def __str__(self):
         return self.image_name
-    class Meta:
-        ordering = ['image_name']
+    
 
     def save_image(self):
         self.save() 
+    
     @classmethod
-    def all_photos(cls):
+    def get_pics(cls):
         pics = cls.objects.all()
         return pics 
-
+    @classmethod
+    def search_by_category(cls,search_term):
+        pictures = cls.objects.filter(title__icontains=search_term)
+        return pictures
+   
 class Location(models.Model):
     name = models.CharField(max_length =30)
 
