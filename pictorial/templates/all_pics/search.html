@@ -11,15 +11,19 @@
 
   </div>
 
-  <div class="row">
+  <div class="card-columns">
 
-  {% if pictures %}
-    {% for picture in pictures %}
-      <div class="col-sm-6 col-md-3">
-          <h1>{{picture.category}}</h1>
-      </div>
-    {% endfor %}
-  {% endif %}
+    {% if pictures %}
+      {% for picture in pictures %}
+        <!--Display searched images  -->
+        <div class="col-md-3 col-sm-3 col-xs-3">
+          <div class="card card2">
+              <img src="{{picture.image.url}}" alt="{{image.name}}" class="card-img" height="280px" width="100%">
+          </div>
+        </div>
+        
+      {% endfor %}
+    {% endif %}
   </div>
 </div>
 {% endblock %}

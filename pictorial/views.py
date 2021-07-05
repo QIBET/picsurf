@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from pictorial.models import Image
+from pictorial.models import Image,Category,Location
 
 
 # Create your views here.
@@ -8,6 +8,7 @@ def pictorial(request):
     return render(request, 'pictorial.html',{"all_pics":all_pics})
 
 def search_results(request):
+   
 
     if 'picture' in request.GET and request.GET["picture"]:
         search_term = request.GET.get("picture")

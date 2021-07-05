@@ -12,10 +12,38 @@
   {% for pic in all_pics %}
 
   <div class="card-columns">
-    <!-- displaying News articles -->
+    <!-- displaying pictures -->
 
     <div class="col-md-3 col-sm-3 col-xs-3">
-      <img src="{{pic.image.url}}" class="img-responsive img-fluid img-thumbnail" style="width: 100%;height:250px">
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><img src="{{pic.image.url}}" class="img-responsive img-fluid img-thumbnail" style="width: 100%;height:250px"></button>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">{{pic.image_name}}</h4>
+            </div>
+            <div class="modal-body">
+             
+
+                <img class="card-img-top img-responsive" src="{{pic.image.url}}"alt="Card image cap">
+                  <p class="card-text photo ">Photo description : {{pic.description}}.</p>
+                  <p class="card-text shot">Shot in: {{pic.location}}</p>
+                  <p class="card-text cate">Category: {{pic.category}}</p>
+              
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+      </div>
+      
     </div>
    
   </div>

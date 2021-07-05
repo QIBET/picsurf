@@ -19,17 +19,25 @@ class Image(models.Model):
         pics = cls.objects.all()
         return pics 
     @classmethod
-    def search_by_category(cls,search_term):
-        pictures = cls.objects.filter(title__icontains=search_term)
+    def search_by_category(cls,category):
+        pictures = Image.objects.filter(category__name__icontains=category)
         return pictures
+
+
    
 class Location(models.Model):
     name = models.CharField(max_length =30)
 
     def __str__(self):
         return self.name
+        
+    def save_location(self):
+        self.save() 
 class Category(models.Model):
     name = models.CharField(max_length =30)
 
     def __str__(self):
         return self.name
+
+    def save_category(self):
+        self.save() 
