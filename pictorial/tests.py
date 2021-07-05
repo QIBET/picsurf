@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Image,Category,Location
+from .models import Image
 
 class ImageTestClass(TestCase):
     def setUp(self):
@@ -14,3 +14,10 @@ class ImageTestClass(TestCase):
         self.new_image.save_image()
         images = Image.objects.all()
         self.assertTrue(len(images) > 0)
+
+    def test_delete_image(self):
+        '''
+        Function that tests whether a location can be deleted
+        '''
+        self.new_image.save_image()
+        self.new_image.delete_image()

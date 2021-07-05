@@ -14,15 +14,22 @@ class Image(models.Model):
     def save_image(self):
         self.save() 
     
+    def delete_image(self):
+        self.delete()
+    
     @classmethod
     def get_pics(cls):
         pics = cls.objects.all()
         return pics 
     @classmethod
     def search_by_category(cls,category):
-        pictures = Image.objects.filter(category__name__icontains=category)
+        pictures = cls.objects.filter(category__name__icontains=category)
         return pictures
 
+    @classmethod
+    def update_image(cls,current_value,new_value):
+        fetched_object = Image.objects.filter(image_name=current_value).update(image_name=new_value)
+        return fetched_object
 
    
 class Location(models.Model):

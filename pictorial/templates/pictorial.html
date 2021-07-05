@@ -1,3 +1,4 @@
+
 {%extends 'all_pics/base.html'%}
 {% load static %}
 
@@ -12,45 +13,61 @@
   {% for pic in all_pics %}
 
   <div class="card-columns">
-    <!-- displaying pictures -->
+    <!-- displaying images -->
 
     <div class="col-md-3 col-sm-3 col-xs-3">
-      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"><img src="{{pic.image.url}}" class="img-responsive img-fluid img-thumbnail" style="width: 100%;height:250px"></button>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{pic.id}}">
+            <img src="{{pic.image.url}}" class="img-responsive img-fluid img-thumbnail" style="width: 100%;height:250px" >
+          </button>
+
     </div>
-
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-
-        <!-- Modal content-->
-        <div class="modal-content">
+   <div>   
+    <div class="modal fade" id="{{pic.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">{{pic.image_name}}</h4>
+                <span><em>Kindly find the image details below</em></span>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
+  
             <div class="modal-body">
-             
+                <img src="{{pic.image.url}}" class="img-responsive img-fluid img-thumbnail" style="width: 150%;height:300px" >
+                <span class="badge badge-warning" style="text-align: center;">IMAGE DETAILS</span><br>
+                <span class="badge badge-success">Image Name: {{ pic.image_name }}</span><br>
+                <span class="badge badge-success">Description:{{ pic.description }}</span><br>
+                <span class="badge badge-success">Category: {{ pic.category }}</span><br>
 
-                <img class="card-img-top img-responsive" src="{{pic.image.url}}"alt="Card image cap">
-                  <p class="card-text photo ">Photo description : {{pic.description}}.</p>
-                  <p class="card-text shot">Shot in: {{pic.location}}</p>
-                  <p class="card-text cate">Category: {{pic.category}}</p>
-              
             </div>
+  
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <input style="color:blue;"class="form-control input-lg" type="text"  value="{{pic.image.url}}" id="{{pic.id}}.url">
+                            
+                <button type="button" class="btn btn-success btn-sm" onclick="copyMe( '{{pic.id}}.url')">copy 
+                            </button> 
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Close</button>
+              {%block script%}
+              <script>
+                  
+                      copyMe = (element) => {
+                      document.getElementById(element).select();
+                      document.execCommand("copy");
+                      }
+                      
+              </script> 
+              {%endblock%}
             </div>
+          </div>
         </div>
-
       </div>
-      
     </div>
+                       
+      {% endfor %}
+
+    </div>
+    
+   </div>
    
-  </div>
-
-
-  {% endfor %}
-
-</div>
-
-{% endblock %}
+  
+  {%endblock%}
