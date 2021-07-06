@@ -1,1 +1,1 @@
-web: gunicorn pictorial.wsgi --log-file -
+web: gunicorn picsurf.wsgi --log-file -
