@@ -9,10 +9,12 @@
 <body>
     <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
           <div class="navbar-header">
-            <a class="navbar-brand" href="">Pic~Surf</a>
-            <a href="{% url 'pictorial' %}">Home</a>
-            <a href="{% url 'pictorial' %}">Location</a>
-
+            <ul>
+              <li><a href="#">PIC~SURF</a></li>
+              <li><a class="active" href="{% url 'pictorial' %}">HOME</a></li>
+              <li><a href="{% url 'location' %}">LOCATION</a></li>
+              
+            </ul>
           </div>
      
             <form class="navbar-form navbar-right" role="search" action="{% url 'search_results' %}">

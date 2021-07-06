@@ -30,6 +30,12 @@ class Image(models.Model):
     def update_image(cls,current_value,new_value):
         fetched_object = Image.objects.filter(image_name=current_value).update(image_name=new_value)
         return fetched_object
+    
+    @classmethod
+    def filter_by_location(cls,location):
+        location_result = cls.objects.filter(image_location_id=location)
+        return location_result;   
+
 
    
 class Location(models.Model):
@@ -40,6 +46,7 @@ class Location(models.Model):
         
     def save_location(self):
         self.save() 
+        
 class Category(models.Model):
     name = models.CharField(max_length =30)
 
