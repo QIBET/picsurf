@@ -21,7 +21,7 @@ def search_results(request):
         message = "You haven't searched for any term"
         return render(request, 'all_pics/search.html',{"message":message})
 
-def filter_by_location(request,location_id):
+""" def filter_by_location(request,location_id):
     images = Image.objects.filter(id=location_id)
 
-    return render(request, 'location.html', {"images": images})
+    return render(request, 'location.html', {"images": images}) """
