@@ -11,7 +11,7 @@ Is a web application that displays a personal gallery of my favorite photos base
  * Copy a link to the photo to share with my friends.
  * View photos based on the location they were taken.
  # Screenshot of application landing page
-![](media/pictures/picsurf.png?raw=true "Pic~surf")
+![](static/screenshots/picsurf.png?raw=true "Pic~surf")
 
 # SetUp / Installation Requirements
 ### You need to have the following
